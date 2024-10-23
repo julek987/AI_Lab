@@ -64,13 +64,13 @@ def dfs(graph, start_city):
 
     return best_path, best_cost
 
-# Symmetrical scenario (all direct connections and symmetrical cost)
 city1 = create_random_city("CityA")
 city2 = create_random_city("CityB")
 city3 = create_random_city("CityC")
 city4 = create_random_city("CityD")
 city5 = create_random_city("CityE")
 
+# Symmetrical scenario (all direct connections and symmetrical cost)
 city_graph_symmetrical = Graph()
 city_graph_symmetrical.add_city(city1)
 city_graph_symmetrical.add_city(city2)
@@ -147,3 +147,72 @@ print(f"BFS Best Path (Asymmetrical): {best_path_asym}, Cost: {best_cost_asym}")
 
 best_path_asym, best_cost_asym = dfs(city_graph_asymmetrical, city1)
 print(f"DFS Best Path (Asymmetrical): {best_path_asym}, Cost: {best_cost_asym}")
+
+# =======================================================
+# Symmetrical scenario (80% connections and symmetrical cost)
+city_graph_symmetrical_80 = Graph()
+city_graph_symmetrical_80.add_city(city1)
+city_graph_symmetrical_80.add_city(city2)
+city_graph_symmetrical_80.add_city(city3)
+city_graph_symmetrical_80.add_city(city4)
+city_graph_symmetrical_80.add_city(city5)
+
+city_graph_symmetrical_80.add_road(city1, city2, asymmetrical=False)
+city_graph_symmetrical_80.add_road(city1, city3, asymmetrical=False)
+
+city_graph_symmetrical_80.add_road(city2, city4, asymmetrical=False)
+city_graph_symmetrical_80.add_road(city2, city5, asymmetrical=False)
+
+city_graph_symmetrical_80.add_road(city3, city2, asymmetrical=False)
+city_graph_symmetrical_80.add_road(city3, city5, asymmetrical=False)
+
+city_graph_symmetrical_80.add_road(city4, city1, asymmetrical=False)
+city_graph_symmetrical_80.add_road(city4, city5, asymmetrical=False)
+
+# Display the graph for the symmetrical scenario with 80% connections
+print("\nSymmetrical graph (80%):")
+city_graph_symmetrical_80.display_graph()
+
+# Run BFS and DFS for symmetrical scenario with 80% scenarios
+best_path_asym, best_cost_asym = bfs(city_graph_symmetrical_80, city1)
+print(f"BFS Best Path (Symmetrical): {best_path_asym}, Cost: {best_cost_asym}")
+
+best_path_asym, best_cost_asym = dfs(city_graph_symmetrical_80, city1)
+print(f"DFS Best Path (Symmetrical): {best_path_asym}, Cost: {best_cost_asym}")
+
+# =======================================================
+# Asymmetrical scenario (80% connections and asymmetrical cost)
+city_graph_asymmetrical_80 = Graph()
+city_graph_asymmetrical_80.add_city(city1)
+city_graph_asymmetrical_80.add_city(city2)
+city_graph_asymmetrical_80.add_city(city3)
+city_graph_asymmetrical_80.add_city(city4)
+city_graph_asymmetrical_80.add_city(city5)
+
+city_graph_asymmetrical_80.add_road(city1, city2, asymmetrical=True)
+city_graph_asymmetrical_80.add_road(city1, city3, asymmetrical=True)
+
+city_graph_asymmetrical_80.add_road(city2, city4, asymmetrical=True)
+city_graph_asymmetrical_80.add_road(city2, city5, asymmetrical=True)
+
+city_graph_asymmetrical_80.add_road(city3, city2, asymmetrical=True)
+city_graph_asymmetrical_80.add_road(city3, city5, asymmetrical=True)
+
+city_graph_asymmetrical_80.add_road(city4, city1, asymmetrical=True)
+city_graph_asymmetrical_80.add_road(city4, city5, asymmetrical=True)
+
+# Display the graph for the symmetrical scenario with 80% connections
+print("\nAsymmetrical graph (80%):")
+city_graph_asymmetrical_80.display_graph()
+
+# Run BFS and DFS for symmetrical scenario with 80% scenarios
+best_path_asym, best_cost_asym = bfs(city_graph_asymmetrical_80, city1)
+print(f"BFS Best Path (Asymmetrical): {best_path_asym}, Cost: {best_cost_asym}")
+
+best_path_asym, best_cost_asym = dfs(city_graph_asymmetrical_80, city1)
+print(f"DFS Best Path (Asymmetrical): {best_path_asym}, Cost: {best_cost_asym}")
+
+
+
+
+
