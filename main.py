@@ -1,53 +1,8 @@
 from City import City, create_random_city
 from Graph import Graph
-
-
-#All direct connections and symmetrical cost:
-
-city1 = create_random_city("CityA")
-city2 = create_random_city("CityB")
-city3 = create_random_city("CityC")
-city4 = create_random_city("CityD")
-city5 = create_random_city("CityE")
-
-city_graph = Graph()
-city_graph.add_city(city1)
-city_graph.add_city(city2)
-city_graph.add_city(city3)
-city_graph.add_city(city4)
-city_graph.add_city(city5)
-
-city_graph.add_road(city1, city2, asymmetrical=False)
-city_graph.add_road(city1, city3, asymmetrical=False)
-city_graph.add_road(city1, city4, asymmetrical=False)
-city_graph.add_road(city1, city5, asymmetrical=False)
-
-city_graph.add_road(city2, city3, asymmetrical=False)
-city_graph.add_road(city2, city4, asymmetrical=False)
-city_graph.add_road(city2, city5, asymmetrical=False)
-
-
-city_graph.add_road(city3, city4, asymmetrical=False)
-city_graph.add_road(city3, city5, asymmetrical=False)
-
-
-city_graph.add_road(city4, city5, asymmetrical=False)
-
-# Display the graph
-city_graph.display_graph()
-
-class State:
-    def __init__(self, current_city, visited, total_cost):
-        self.current_city = current_city      # The city the salesman is currently in
-        self.visited = visited                # The set of cities visited so far
-        self.total_cost = total_cost          # The total travel cost so far
-
-    def __repr__(self):
-        return f"State(city={self.current_city.name}, visited={len(self.visited)}, cost={self.total_cost})"
-
+from State import State
 
 from collections import deque
-
 
 def bfs(graph, start_city):
     # Queue for BFS, containing the initial state (starting from start_city)
@@ -79,7 +34,6 @@ def bfs(graph, start_city):
 
     return best_path, best_cost
 
-
 def dfs(graph, start_city):
     # Stack for DFS, containing the initial state (starting from start_city)
     initial_state = State(start_city, {start_city}, 0)
@@ -110,9 +64,86 @@ def dfs(graph, start_city):
 
     return best_path, best_cost
 
-best_path, best_cost = bfs(city_graph, city1)
-print(f"BFS Best Path: {best_path}, Cost: {best_cost}")
+# Symmetrical scenario (all direct connections and symmetrical cost)
+city1 = create_random_city("CityA")
+city2 = create_random_city("CityB")
+city3 = create_random_city("CityC")
+city4 = create_random_city("CityD")
+city5 = create_random_city("CityE")
 
-best_path, best_cost = dfs(city_graph, city1)
-print(f"DFS Best Path: {best_path}, Cost: {best_cost}")
+city_graph_symmetrical = Graph()
+city_graph_symmetrical.add_city(city1)
+city_graph_symmetrical.add_city(city2)
+city_graph_symmetrical.add_city(city3)
+city_graph_symmetrical.add_city(city4)
+city_graph_symmetrical.add_city(city5)
 
+city_graph_symmetrical.add_road(city1, city2, asymmetrical=False)
+city_graph_symmetrical.add_road(city1, city3, asymmetrical=False)
+city_graph_symmetrical.add_road(city1, city4, asymmetrical=False)
+city_graph_symmetrical.add_road(city1, city5, asymmetrical=False)
+
+city_graph_symmetrical.add_road(city2, city3, asymmetrical=False)
+city_graph_symmetrical.add_road(city2, city4, asymmetrical=False)
+city_graph_symmetrical.add_road(city2, city5, asymmetrical=False)
+
+city_graph_symmetrical.add_road(city3, city4, asymmetrical=False)
+city_graph_symmetrical.add_road(city3, city5, asymmetrical=False)
+
+city_graph_symmetrical.add_road(city4, city5, asymmetrical=False)
+
+# Display the graph for the symmetrical scenario
+print("Symmetrical graph:")
+city_graph_symmetrical.display_graph()
+
+# Run BFS and DFS for symmetrical scenario
+best_path_sym, best_cost_sym = bfs(city_graph_symmetrical, city1)
+print(f"BFS Best Path (Symmetrical): {best_path_sym}, Cost: {best_cost_sym}")
+
+best_path_sym, best_cost_sym = dfs(city_graph_symmetrical, city1)
+print(f"DFS Best Path (Symmetrical): {best_path_sym}, Cost: {best_cost_sym}")
+
+# =======================================================
+# Asymmetrical scenario (all direct connections but asymmetrical cost)
+city_graph_asymmetrical = Graph()
+city_graph_asymmetrical.add_city(city1)
+city_graph_asymmetrical.add_city(city2)
+city_graph_asymmetrical.add_city(city3)
+city_graph_asymmetrical.add_city(city4)
+city_graph_asymmetrical.add_city(city5)
+
+city_graph_asymmetrical.add_road(city1, city2, asymmetrical=True)
+city_graph_asymmetrical.add_road(city1, city3, asymmetrical=True)
+city_graph_asymmetrical.add_road(city1, city4, asymmetrical=True)
+city_graph_asymmetrical.add_road(city1, city5, asymmetrical=True)
+
+city_graph_asymmetrical.add_road(city2, city1, asymmetrical=True)
+city_graph_asymmetrical.add_road(city2, city3, asymmetrical=True)
+city_graph_asymmetrical.add_road(city2, city4, asymmetrical=True)
+city_graph_asymmetrical.add_road(city2, city5, asymmetrical=True)
+
+city_graph_asymmetrical.add_road(city3, city1, asymmetrical=True)
+city_graph_asymmetrical.add_road(city3, city2, asymmetrical=True)
+city_graph_asymmetrical.add_road(city3, city4, asymmetrical=True)
+city_graph_asymmetrical.add_road(city3, city5, asymmetrical=True)
+
+city_graph_asymmetrical.add_road(city4, city1, asymmetrical=True)
+city_graph_asymmetrical.add_road(city4, city2, asymmetrical=True)
+city_graph_asymmetrical.add_road(city4, city3, asymmetrical=True)
+city_graph_asymmetrical.add_road(city4, city5, asymmetrical=True)
+
+city_graph_asymmetrical.add_road(city5, city1, asymmetrical=True)
+city_graph_asymmetrical.add_road(city5, city2, asymmetrical=True)
+city_graph_asymmetrical.add_road(city5, city3, asymmetrical=True)
+city_graph_asymmetrical.add_road(city5, city4, asymmetrical=True)
+
+# Display the graph for the asymmetrical scenario
+print("\nAsymmetrical graph:")
+city_graph_asymmetrical.display_graph()
+
+# Run BFS and DFS for asymmetrical scenario
+best_path_asym, best_cost_asym = bfs(city_graph_asymmetrical, city1)
+print(f"BFS Best Path (Asymmetrical): {best_path_asym}, Cost: {best_cost_asym}")
+
+best_path_asym, best_cost_asym = dfs(city_graph_asymmetrical, city1)
+print(f"DFS Best Path (Asymmetrical): {best_path_asym}, Cost: {best_cost_asym}")
