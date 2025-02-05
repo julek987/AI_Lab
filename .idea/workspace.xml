@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d62142-6423-4e51-aa1e-90229565dd98" name="Changes" comment="Reading orders from file">
+    <list default="true" id="22d62142-6423-4e51-aa1e-90229565dd98" name="Changes" comment="Chromosome and schedule creation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task2/genetic.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Task2/genetic2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/genetic2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -212,7 +211,7 @@
       <workItem from="1737045172357" duration="12432000" />
       <workItem from="1737664975892" duration="9000" />
       <workItem from="1738762156497" duration="920000" />
-      <workItem from="1738763083394" duration="11124000" />
+      <workItem from="1738763083394" duration="12815000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -270,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738772085854</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Chromosome and schedule creation">
+      <option name="closed" value="true" />
+      <created>1738775835307</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1738775835307</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,7 +291,8 @@
     <MESSAGE value="Clean" />
     <MESSAGE value="Done" />
     <MESSAGE value="Reading orders from file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reading orders from file" />
+    <MESSAGE value="Chromosome and schedule creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chromosome and schedule creation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AILabs$graph.coverage" NAME="graph Coverage Results" MODIFIED="1737049492560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -292,7 +300,7 @@
     <SUITE FILE_PATH="coverage/AILabs$aco.coverage" NAME="aco Coverage Results" MODIFIED="1737055873460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AILabs$main.coverage" NAME="main Coverage Results" MODIFIED="1738762577611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AILabs$city.coverage" NAME="city Coverage Results" MODIFIED="1737046145701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/AILabs$genetic2.coverage" NAME="genetic2 Coverage Results" MODIFIED="1738775247640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
+    <SUITE FILE_PATH="coverage/AILabs$genetic2.coverage" NAME="genetic2 Coverage Results" MODIFIED="1738777439318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
     <SUITE FILE_PATH="coverage/AILabs$a_.coverage" NAME="a* Coverage Results" MODIFIED="1737054858096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AILabs$genetic.coverage" NAME="genetic Coverage Results" MODIFIED="1738766678511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
   </component>
