@@ -37,7 +37,6 @@ def decode_chromosome(chromosome, orders):
 
     schedule = []
 
-    # Process the chromosome from left to right.
     for order_id in chromosome:
         op_index = next_op_index[order_id]
         # Check if all operations for this order are already scheduled.
@@ -168,11 +167,11 @@ def genetic_algorithm(orders,
 
 
 best_chrom, best_fit = genetic_algorithm(orders,
-                                         pop_size=1500,
-                                         generations=100,
+                                         pop_size=150,
+                                         generations=250,
                                          crossover_rate=0.6,
-                                         mutation_rate=0.01,
-                                         tournament_size=40)
+                                         mutation_rate=0.001,
+                                         tournament_size=4)
 
 print("\nBest Found Schedule:")
 decoded_schedule, final_makespan = decode_chromosome(best_chrom, orders)

@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d62142-6423-4e51-aa1e-90229565dd98" name="Changes" comment="Genetic done">
-      <change afterPath="$PROJECT_DIR$/Task2/pso.py" afterDir="false" />
+    <list default="true" id="22d62142-6423-4e51-aa1e-90229565dd98" name="Changes" comment="Clean">
+      <change afterPath="$PROJECT_DIR$/Task3/nn.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task1/aco.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task1/aco.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task1/astar.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task1/astar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task1/bfs_dfs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task1/bfs_dfs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task1/dijkstra.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task1/dijkstra.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task1/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task1/nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task1/nn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/genetic.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/genetic.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +49,8 @@
     "Python.genetic2.executor": "Run",
     "Python.graph.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.nn.executor": "Run",
+    "Python.pso.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "database.data.extractors.current.export.id": "CSV-Groovy.csv.groovy",
     "database.data.extractors.current.id": "CSV-Groovy.csv.groovy",
@@ -63,53 +72,7 @@
       <recent name="$PROJECT_DIR$/Task1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.genetic2">
-    <configuration name="aco" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="AILabs" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task1/aco.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="astar" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="AILabs" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task1/astar.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.main">
     <configuration name="genetic" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AILabs" />
       <option name="ENV_FILES" value="" />
@@ -179,13 +142,59 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="nn" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AILabs" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task3/nn.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pso" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AILabs" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task2/pso.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.genetic2" />
-        <item itemvalue="Python.genetic" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.aco" />
-        <item itemvalue="Python.astar" />
+        <item itemvalue="Python.nn" />
+        <item itemvalue="Python.genetic" />
+        <item itemvalue="Python.pso" />
+        <item itemvalue="Python.genetic2" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +220,7 @@
       <workItem from="1737045172357" duration="12432000" />
       <workItem from="1737664975892" duration="9000" />
       <workItem from="1738762156497" duration="920000" />
-      <workItem from="1738763083394" duration="13157000" />
+      <workItem from="1738763083394" duration="22054000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -285,7 +294,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738777696962</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="pso done">
+      <option name="closed" value="true" />
+      <created>1738777934609</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1738777934609</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Clean">
+      <option name="closed" value="true" />
+      <created>1738778153713</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1738778153713</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,21 +321,24 @@
     <MESSAGE value="Symmetrical and asymmetrical scenarios" />
     <MESSAGE value="Symmetrical and asymmetrical scenarios with 80% connections" />
     <MESSAGE value="Nearest neighbour" />
-    <MESSAGE value="Clean" />
     <MESSAGE value="Done" />
     <MESSAGE value="Reading orders from file" />
     <MESSAGE value="Chromosome and schedule creation" />
     <MESSAGE value="Genetic done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Genetic done" />
+    <MESSAGE value="pso done" />
+    <MESSAGE value="Clean" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AILabs$graph.coverage" NAME="graph Coverage Results" MODIFIED="1737049492560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AILabs$bfs_dfs.coverage" NAME="bfs_dfs Coverage Results" MODIFIED="1737052118369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AILabs$aco.coverage" NAME="aco Coverage Results" MODIFIED="1737055873460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/AILabs$main.coverage" NAME="main Coverage Results" MODIFIED="1738762577611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AILabs$main.coverage" NAME="main Coverage Results" MODIFIED="1738874462602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AILabs$city.coverage" NAME="city Coverage Results" MODIFIED="1737046145701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AILabs$genetic2.coverage" NAME="genetic2 Coverage Results" MODIFIED="1738777587134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
+    <SUITE FILE_PATH="coverage/AILabs$pso.coverage" NAME="pso Coverage Results" MODIFIED="1738777897742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
     <SUITE FILE_PATH="coverage/AILabs$a_.coverage" NAME="a* Coverage Results" MODIFIED="1737054858096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/AILabs$genetic.coverage" NAME="genetic Coverage Results" MODIFIED="1738766678511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
+    <SUITE FILE_PATH="coverage/AILabs$nn.coverage" NAME="nn Coverage Results" MODIFIED="1738873424760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task3" />
+    <SUITE FILE_PATH="coverage/AILabs$genetic.coverage" NAME="genetic Coverage Results" MODIFIED="1738848325532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
   </component>
 </project>

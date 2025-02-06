@@ -1,6 +1,5 @@
 from collections import deque
 
-from city import generate_cities
 from graph import Graph
 
 
@@ -83,7 +82,7 @@ def dfs(graph_obj: Graph, start_city_index: int):
     visited_init = set([start_city_index])
     dfs_recursive(start_city_index, visited_init, [start_city_index], 0.0)
 
-    # Convert best_route from city indices to City objects
+    # Convert best_route from city IDss to City objects
     if best_route[0] is None:
         return None, float('inf')
     else:
