@@ -1,15 +1,13 @@
 import numpy as np
-from sklearn.datasets import load_iris  # Only used for dataset loading
+from sklearn.datasets import load_iris
 
-# -------------------------
-# Data Loading and Preparation
-# -------------------------
+
 # Load the Iris dataset
 data = load_iris()
 X = data.data  # Shape: (150, 4)
 y = data.target  # Shape: (150,)
 
-# Manually split the data into training and testing sets (80% train, 20% test)
+# Split the data into training and testing sets (80% train, 20% test)
 np.random.seed(42)
 indices = np.random.permutation(len(X))
 split = int(0.8 * len(X))
@@ -18,7 +16,7 @@ X_train, X_test = X[train_idx], X[test_idx]
 y_train, y_test = y[train_idx], y[test_idx]
 
 
-# Manually one-hot encode the labels
+# One-hot encode the labels
 def one_hot_encode(y, num_classes):
     one_hot = np.zeros((len(y), num_classes))
     for i, label in enumerate(y):
@@ -29,9 +27,7 @@ def one_hot_encode(y, num_classes):
 y_train_one_hot = one_hot_encode(y_train, 3)
 y_test_one_hot = one_hot_encode(y_test, 3)
 
-# -------------------------
-# Neural Network Architecture Parameters
-# -------------------------
+
 input_size = X.shape[1]  # 4 features
 hidden_size1 = 10  # First hidden layer neurons
 hidden_size2 = 10  # Second hidden layer neurons
@@ -39,9 +35,7 @@ output_size = 3  # 3 classes (iris species)
 epochs = 1000
 learning_rate = 0.01
 
-# -------------------------
-# Parameter Initialization (using He initialization for ReLU)
-# -------------------------
+
 np.random.seed(42)
 W1 = np.random.randn(input_size, hidden_size1) * np.sqrt(2 / input_size)
 b1 = np.zeros((1, hidden_size1))
@@ -51,30 +45,23 @@ W3 = np.random.randn(hidden_size2, output_size) * np.sqrt(2 / hidden_size2)
 b3 = np.zeros((1, output_size))
 
 
-# -------------------------
-# Activation Functions and Loss
-# -------------------------
+
 def relu(x):
-    """ReLU activation function."""
     return np.maximum(0, x)
 
 
 def softmax(x):
-    """Softmax activation function applied row-wise."""
-    exp_x = np.exp(x - np.max(x, axis=1, keepdims=True))  # for numerical stability
+    exp_x = np.exp(x - np.max(x, axis=1, keepdims=True))
     return exp_x / np.sum(exp_x, axis=1, keepdims=True)
 
 
 def cross_entropy_loss(y_true, y_pred):
-    """Computes the cross-entropy loss."""
     m = y_true.shape[0]
     loss = -np.sum(y_true * np.log(y_pred + 1e-8)) / m
     return loss
 
 
-# -------------------------
-# Training Loop (Full-Batch Gradient Descent)
-# -------------------------
+
 for epoch in range(epochs):
     # Forward pass
     Z1 = np.dot(X_train, W1) + b1  # (m, hidden_size1)
@@ -119,11 +106,7 @@ for epoch in range(epochs):
         print(f"Epoch {epoch:4d}: Loss = {loss:.4f}")
 
 
-# -------------------------
-# Evaluation on the Test Set
-# -------------------------
 def predict(X):
-    """Predict class labels for input X."""
     Z1 = np.dot(X, W1) + b1
     A1 = relu(Z1)
     Z2 = np.dot(A1, W2) + b2
