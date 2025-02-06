@@ -82,10 +82,10 @@ def pso(num_particles, dimensions, bounds, iterations,
 
 if __name__ == "__main__":
     # PSO parameters for this problem.
-    num_particles = 30       # Number of particles in the swarm.
+    num_particles = 100       # Number of particles in the swarm.
     dimensions = 2           # We are optimizing two variables: x and y.
     bounds = (-4.5, 4.5)     # The search space for both x and y.
-    iterations = 100         # Total number of iterations to run.
+    iterations = 100          # Total number of iterations to run.
 
     best_position, best_value = pso(num_particles, dimensions, bounds, iterations,
                                     inertia_weight=0.7, cognitive_constant=2.0, social_constant=2.0)
