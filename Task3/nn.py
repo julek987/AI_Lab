@@ -8,7 +8,7 @@ X = data.data  # Shape: (150, 4)
 y = data.target  # Shape: (150,)
 
 # Split the data into training and testing sets (80% train, 20% test)
-np.random.seed(42)
+np.random.seed(20)
 indices = np.random.permutation(len(X))
 split = int(0.8 * len(X))
 train_idx, test_idx = indices[:split], indices[split:]
