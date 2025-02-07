@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d62142-6423-4e51-aa1e-90229565dd98" name="Changes" comment="Genetic - comments">
-      <change afterPath="$PROJECT_DIR$/Task4/fuzzy1.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task4/fuzzy1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task4/lab.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task4/parking_tank.ttt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task4/remoteApi.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task4/tank.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task4/vrep.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task4/vrepConst.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task5/mnist.ipynb" afterDir="false" />
+    <list default="true" id="22d62142-6423-4e51-aa1e-90229565dd98" name="Changes" comment="TODO: Task4(Try win) Task 5 done">
+      <change afterPath="$PROJECT_DIR$/Task6/Screenshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task6/mnist_cnn.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task1/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task3/nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task3/nn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task5/mnist.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Task5/mnist.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +69,7 @@
       <recent name="$PROJECT_DIR$/Task2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Task6" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Task1" />
     </key>
@@ -230,7 +223,7 @@
       <workItem from="1737664975892" duration="9000" />
       <workItem from="1738762156497" duration="920000" />
       <workItem from="1738763083394" duration="29979000" />
-      <workItem from="1738940450434" duration="4533000" />
+      <workItem from="1738940450434" duration="6517000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -344,7 +337,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738878609310</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="TODO: Task4(Try win) Task 5 done">
+      <option name="closed" value="true" />
+      <created>1738945266661</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1738945266661</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +364,8 @@
     <MESSAGE value="Comments" />
     <MESSAGE value="Clean" />
     <MESSAGE value="Genetic - comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Genetic - comments" />
+    <MESSAGE value="TODO: Task4(Try win) Task 5 done" />
+    <option name="LAST_COMMIT_MESSAGE" value="TODO: Task4(Try win) Task 5 done" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AILabs$graph.coverage" NAME="graph Coverage Results" MODIFIED="1737049492560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
