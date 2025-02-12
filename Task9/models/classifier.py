@@ -1,8 +1,8 @@
 import pytorch_lightning as pl
 from torch import nn
-
+import torch
+from torchmetrics.classification import Accuracy
 from Task9.models import Embedding
-
 
 class Classifier(pl.LightningModule):
     def __init__(self, embedding: Embedding, embedding_dim: int, hidden_dim: int, num_classes: int):
@@ -16,6 +16,7 @@ class Classifier(pl.LightningModule):
         )
 
         self.loss = nn.CrossEntropyLoss()
+        self.accuracy = Accuracy(task='multiclass', num_classes=num_classes)
 
     def forward(self, x):
         embedding = self.embedding(x)
@@ -32,5 +33,8 @@ class Classifier(pl.LightningModule):
     def test_step(self, batch, batch_idx):
         img, labels = batch
         logits = self(img)
-        loss = self.loss(logits, labels)
-        self.log('test/loss', loss)
+        accuracy = self.accuracy(logits, labels)
+        self.log('accuracy', accuracy)
+
+    def configure_optimizers(self):
+        return torch.optim.Adam(self.parameters(), lr=1e-3)

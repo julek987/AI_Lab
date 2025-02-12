@@ -7,13 +7,38 @@ class Embedding(pl.LightningModule):
         super().__init__()
 
         self.model = nn.Sequential(
-            # 3 x 32 x 32 (3072)
-            nn.Conv2d(in_channels=3, out_channels=64, kernel_size=3, padding=1), # 64 x 32 x 32
+            # Input: 3 x 32 x 32
+
+            # Conv Layer 1: 3 -> 16, keeps spatial size with padding=1, then downsample to 16x16
+            nn.Conv2d(in_channels=3, out_channels=16, kernel_size=3, padding=1),
+            nn.BatchNorm2d(16),
+            nn.ReLU(),
+            nn.MaxPool2d(2),  # Output: 16 x 16 x 16
+
+            # Conv Layer 2: 16 -> 32, spatial size remains 16x16, then downsample to 8x8
+            nn.Conv2d(in_channels=16, out_channels=32, kernel_size=3, padding=1),
+            nn.BatchNorm2d(32),
+            nn.ReLU(),
+            nn.MaxPool2d(2),  # Output: 32 x 8 x 8
+
+            # Conv Layer 3: 32 -> 64, spatial size remains 8x8, then downsample to 4x4
+            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
-            nn.MaxPool2d(2), # 64 x 16 x 16
-            nn.Dropout(0.2),
-            nn.Conv2d(in_channels=64, out_channels=16, kernel_size=5, padding=2), # 16 x 16 x 16
-            nn.MaxPool2d(2), # 16 x 8 x 8
+            nn.ReLU(),
+            nn.MaxPool2d(2),  # Output: 64 x 4 x 4
+
+            # Conv Layer 4: 64 -> 32, keep spatial size at 4x4
+            nn.Conv2d(in_channels=64, out_channels=32, kernel_size=3, padding=1),
+            nn.BatchNorm2d(32),
+            nn.ReLU(),
+
+            # Conv Layer 5: 32 -> 16, keep spatial size at 4x4, then downsample to 2x2
+            nn.Conv2d(in_channels=32, out_channels=16, kernel_size=3, padding=1),
+            nn.BatchNorm2d(16),
+            nn.ReLU(),
+            nn.MaxPool2d(2),  # Output: 16 x 2 x 2
+
+            # Flatten: 16 * 2 * 2 = 64 features (which is <= 100)
             nn.Flatten()
         )
 

@@ -1,10 +1,11 @@
 import pytorch_lightning as pl
 
-from Task9.data import CifarTripletDataModule
-from Task9.models import Classifier, Embedding
+from Task9.data import CifarDataModule
+from Task9.models import Embedding
+from Task9.models.classifier import Classifier
 
-model = Classifier(Embedding(), 1024, 256, 10)
-data_module = CifarTripletDataModule()
+model = Classifier(Embedding(), 64, 256, 10)
+data_module = CifarDataModule()
 
 trainer = pl.Trainer(max_epochs=7)
 trainer.fit(model, data_module)
