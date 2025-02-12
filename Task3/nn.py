@@ -36,7 +36,7 @@ epochs = 1000
 learning_rate = 0.01
 
 
-np.random.seed(42)
+np.random.seed(22)
 W1 = np.random.randn(input_size, hidden_size1) * np.sqrt(2 / input_size)
 b1 = np.zeros((1, hidden_size1))
 W2 = np.random.randn(hidden_size1, hidden_size2) * np.sqrt(2 / hidden_size1)

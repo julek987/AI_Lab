@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d62142-6423-4e51-aa1e-90229565dd98" name="Changes" comment="TODO: Task4(Try win) Task 5 done">
-      <change afterPath="$PROJECT_DIR$/Task6/Screenshot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task6/mnist_cnn.ipynb" afterDir="false" />
+    <list default="true" id="22d62142-6423-4e51-aa1e-90229565dd98" name="Changes" comment="Task 6 done">
+      <change afterPath="$PROJECT_DIR$/Task7/alphabet.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task8/task8.3.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task9/data/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task9/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task9/models/classifier.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task9/models/embedding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task9/train/train_embedding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task9/train/train_loaded.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task9/train/train_random_init.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task5/mnist.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Task5/mnist.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task3/nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task3/nn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task6/mnist_cnn.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Task6/mnist_cnn.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +45,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.__init__ (1).executor": "Run",
+    "Python.__init__.executor": "Run",
     "Python.a*.executor": "Run",
     "Python.aco.executor": "Run",
     "Python.bfs_dfs.executor": "Run",
     "Python.city.executor": "Run",
+    "Python.classifier.executor": "Run",
+    "Python.embedding.executor": "Run",
     "Python.fuzzy1.executor": "Run",
     "Python.genetic.executor": "Run",
     "Python.genetic2.executor": "Run",
@@ -49,12 +61,14 @@
     "Python.nn.executor": "Run",
     "Python.pso.executor": "Run",
     "Python.tank.executor": "Run",
+    "Python.task8.2.executor": "Run",
+    "Python.train_embedding.executor": "Run",
     "Python.vrep.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "database.data.extractors.current.export.id": "CSV-Groovy.csv.groovy",
     "database.data.extractors.current.id": "CSV-Groovy.csv.groovy",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/julek/PycharmProjects/AILabs/Task4",
+    "last_opened_file_path": "/Users/julek/PycharmProjects/AILabs/Task9",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,6 +79,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Task9" />
       <recent name="$PROJECT_DIR$/Task4" />
       <recent name="$PROJECT_DIR$/Task2" />
     </key>
@@ -74,8 +89,8 @@
       <recent name="$PROJECT_DIR$/Task1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.fuzzy1">
-    <configuration name="fuzzy1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.task8.2">
+    <configuration name="__init__ (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AILabs" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -84,12 +99,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task4" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task9/models" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task4/fuzzy1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task9/models/__init__.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -98,7 +113,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="classifier" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AILabs" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -107,12 +122,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task9/models" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task1/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task9/models/classifier.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -121,7 +136,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="nn" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="embedding" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AILabs" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -130,12 +145,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task9/models" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task3/nn.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task9/models/embedding.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -144,7 +159,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tank" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="task8.2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AILabs" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -153,12 +168,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task4" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task8" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task4/tank.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task8/task8.2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -167,7 +182,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="vrep" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="train_embedding" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AILabs" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -176,12 +191,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task4" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task9/train" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task4/vrep.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task9/train/train_embedding.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -192,11 +207,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.fuzzy1" />
-        <item itemvalue="Python.tank" />
-        <item itemvalue="Python.vrep" />
-        <item itemvalue="Python.nn" />
-        <item itemvalue="Python.main" />
+        <item itemvalue="Python.task8.2" />
+        <item itemvalue="Python.train_embedding" />
+        <item itemvalue="Python.embedding" />
+        <item itemvalue="Python.classifier" />
+        <item itemvalue="Python.__init__ (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -223,7 +238,7 @@
       <workItem from="1737664975892" duration="9000" />
       <workItem from="1738762156497" duration="920000" />
       <workItem from="1738763083394" duration="29979000" />
-      <workItem from="1738940450434" duration="6517000" />
+      <workItem from="1738940450434" duration="22892000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -345,7 +360,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738945266661</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Task 6 done">
+      <option name="closed" value="true" />
+      <created>1738949653363</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1738949653363</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,7 +388,19 @@
     <MESSAGE value="Clean" />
     <MESSAGE value="Genetic - comments" />
     <MESSAGE value="TODO: Task4(Try win) Task 5 done" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODO: Task4(Try win) Task 5 done" />
+    <MESSAGE value="Task 6 done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task 6 done" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook:///Users/julek/PycharmProjects/AILabs/Task6/mnist_cnn.ipynb</url>
+          <line>1</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AILabs$graph.coverage" NAME="graph Coverage Results" MODIFIED="1737049492560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -373,13 +408,19 @@
     <SUITE FILE_PATH="coverage/AILabs$main.coverage" NAME="main Coverage Results" MODIFIED="1738938659882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AILabs$city.coverage" NAME="city Coverage Results" MODIFIED="1737046145701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AILabs$genetic2.coverage" NAME="genetic2 Coverage Results" MODIFIED="1738777587134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
+    <SUITE FILE_PATH="coverage/AILabs$task8_2.coverage" NAME="task8.2 Coverage Results" MODIFIED="1739361736764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task8" />
     <SUITE FILE_PATH="coverage/AILabs$tank.coverage" NAME="tank Coverage Results" MODIFIED="1738940554342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task4" />
     <SUITE FILE_PATH="coverage/AILabs$a_.coverage" NAME="a* Coverage Results" MODIFIED="1737054858096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/AILabs$nn.coverage" NAME="nn Coverage Results" MODIFIED="1738938833668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task3" />
+    <SUITE FILE_PATH="coverage/AILabs$nn.coverage" NAME="nn Coverage Results" MODIFIED="1738950691499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task3" />
     <SUITE FILE_PATH="coverage/AILabs$vrep.coverage" NAME="vrep Coverage Results" MODIFIED="1738939911055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task4" />
+    <SUITE FILE_PATH="coverage/AILabs$__init____1_.coverage" NAME="__init__ (1) Coverage Results" MODIFIED="1739360271571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task9/models" />
     <SUITE FILE_PATH="coverage/AILabs$genetic.coverage" NAME="genetic Coverage Results" MODIFIED="1738878499667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
     <SUITE FILE_PATH="coverage/AILabs$bfs_dfs.coverage" NAME="bfs_dfs Coverage Results" MODIFIED="1737052118369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AILabs$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1739360262706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task9/data" />
+    <SUITE FILE_PATH="coverage/AILabs$classifier.coverage" NAME="classifier Coverage Results" MODIFIED="1739360285999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task9/models" />
     <SUITE FILE_PATH="coverage/AILabs$pso.coverage" NAME="pso Coverage Results" MODIFIED="1738878183129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
     <SUITE FILE_PATH="coverage/AILabs$fuzzy1.coverage" NAME="fuzzy1 Coverage Results" MODIFIED="1738941128164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task4" />
+    <SUITE FILE_PATH="coverage/AILabs$train_embedding.coverage" NAME="train_embedding Coverage Results" MODIFIED="1739360301212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task9/train" />
+    <SUITE FILE_PATH="coverage/AILabs$embedding.coverage" NAME="embedding Coverage Results" MODIFIED="1739360293656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task9/models" />
   </component>
 </project>
