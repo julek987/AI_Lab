@@ -35,7 +35,8 @@ output_size = 3  # 3 classes (iris species)
 epochs = 1000
 learning_rate = 0.01
 
-
+# Weights - matrices that transform the input data as it passes from one layer to the next.
+# Biases - vectors added to the result of the weighted sum
 np.random.seed(42)
 W1 = np.random.randn(input_size, hidden_size1) * np.sqrt(2 / input_size)
 b1 = np.zeros((1, hidden_size1))
@@ -45,16 +46,17 @@ W3 = np.random.randn(hidden_size2, output_size) * np.sqrt(2 / hidden_size2)
 b3 = np.zeros((1, output_size))
 
 
-
+# Sets all negative values in x to 0, and keeps positive values unchanged.
 def relu(x):
     return np.maximum(0, x)
 
-
+# Converts raw output scores (logits) into probabilities that sum to 1.
 def softmax(x):
     exp_x = np.exp(x - np.max(x, axis=1, keepdims=True))
     return exp_x / np.sum(exp_x, axis=1, keepdims=True)
 
-
+# Measures the difference between the true distribution (one-hot encoded labels)
+# and the predicted probability distribution from the network.
 def cross_entropy_loss(y_true, y_pred):
     m = y_true.shape[0]
     loss = -np.sum(y_true * np.log(y_pred + 1e-8)) / m
@@ -77,10 +79,9 @@ for epoch in range(epochs):
     # Backpropagation
     m = X_train.shape[0]
 
-    # Output layer gradients
-    dZ3 = A3 - y_train_one_hot  # (m, output_size)
-    dW3 = np.dot(A2.T, dZ3) / m  # (hidden_size2, output_size)
-    db3 = np.sum(dZ3, axis=0, keepdims=True) / m
+    dZ3 = A3 - y_train_one_hot  # Difference between prediction and true label
+    dW3 = np.dot(A2.T, dZ3) / m  # Gradient for W3
+    db3 = np.sum(dZ3, axis=0, keepdims=True) / m  # Gradient for b3
 
     # Gradients for second hidden layer
     dA2 = np.dot(dZ3, W3.T)  # (m, hidden_size2)

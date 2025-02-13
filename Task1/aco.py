@@ -9,9 +9,9 @@ def aco_tsp(
     graph: Graph,
     num_ants: int = 10,
     num_iterations: int = 50,
-    alpha: float = 1.0,
-    beta: float = 2.0,
-    evaporation_rate: float = 0.5,
+    alpha: float = 1.0, # influence of pheromone concentration
+    beta: float = 2.0, # influence of distance (cost)
+    evaporation_rate: float = 0.5, # How much pheromone decays after each iteration
     q: float = 100.0
 ) -> Tuple[List[int], float]:
     # Get the number of cities and the cost matrix from the graph.
