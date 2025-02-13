@@ -1,139 +1,127 @@
-from coppeliasim_zmqremoteapi_client import RemoteAPIClient
+import vrep
 
 class Tank:
-    def __init__(self, one_sensor=False):
-        # Connect to the remote API client
-        print('ceated a tank!')
-        client = RemoteAPIClient()
-        self.sim = client.getObject('sim')
-
-        # Definde if all sensors will be used
-        self.one_sensor = one_sensor
-
-        # Get handles to robot drivers
-        self.left_front_handle = self.sim.getObject('/left_front')
-        self.left_back_handle = self.sim.getObject('/left_back')
-        self.right_back_handle = self.sim.getObject('/right_back')
-        self.right_front_handle = self.sim.getObject('/right_front')
-
-        self.side_handles = []
+    def __init__(self, ID):
+        self.clientID = ID
+        # get handles to robot drivers
+        err_code, self.left_front_handle =  vrep.simxGetObjectHandle(self.clientID,'left_front', vrep.simx_opmode_blocking)
+        err_code, self.left_back_handle  =  vrep.simxGetObjectHandle(self.clientID,'left_back', vrep.simx_opmode_blocking)
+        err_code, self.right_back_handle =  vrep.simxGetObjectHandle(self.clientID,'right_back', vrep.simx_opmode_blocking)
+        err_code, self.right_front_handle=  vrep.simxGetObjectHandle(self.clientID,'right_front', vrep.simx_opmode_blocking)
+        
+        self.side_handles=[]
         for l in 'rl':
-            for i in range(1, 7):
-                handle = self.sim.getObject(f'/sj_{l}_{i}')
+            for i in range(1,7):
+                err_code, handle=  vrep.simxGetObjectHandle(self.clientID,'sj_'+l+'_'+str(i) , vrep.simx_opmode_blocking)
                 self.side_handles.append(handle)
-
-        # Initial velocity
-        self.leftvelocity = 0
-        self.rightvelocity = 0
-        self.MaxVel = 10
-        self.dVel = 1
-        self.FORCE = 100
-
-        # Proximity sensors
-        self.proximity_sensors = ["EN", "ES", "NE", "NW", "SE", "SW", "WN", "WS"] if not self.one_sensor else ['N']
-        self.proximity_sensors_handles = []
-
-        # Get handles to proximity sensors
-        for sensor in self.proximity_sensors:
-            handle = self.sim.getObject(f'/Proximity_sensor_{sensor}' if not self.one_sensor else f'/Proximity_sensor')
-            self.proximity_sensors_handles.append(handle)
-
+       
+        #initial velocity
+        self.leftvelocity=0
+        self.rightvelocity=0
+        self.MaxVel=10
+        self.dVel=1
+        
     def stop(self):
-        # Set drivers to stop mode
-        force = 0
-        self.sim.setJointForce(self.left_front_handle, force)
-        self.sim.setJointForce(self.left_back_handle, force)
-        self.sim.setJointForce(self.right_back_handle, force)
-        self.sim.setJointForce(self.right_front_handle, force)
-
-        force = self.FORCE
+        #set divers to stop mode
+        force =0
+        err_code = vrep.simxSetJointForce(self.clientID, self.left_front_handle, force, vrep.simx_opmode_oneshot)
+        err_code = vrep.simxSetJointForce(self.clientID, self.left_back_handle, force, vrep.simx_opmode_oneshot)
+        err_code = vrep.simxSetJointForce(self.clientID, self.right_back_handle, force, vrep.simx_opmode_oneshot)
+        err_code = vrep.simxSetJointForce(self.clientID, self.right_front_handle, force, vrep.simx_opmode_oneshot)
+        
+        force =10
         for h in self.side_handles:
-            self.sim.setJointForce(h, force)
-
-        # Brake
-        self.leftvelocity = 10
-        self.rightvelocity = 10
-        self.sim.setJointTargetVelocity(self.left_front_handle, self.leftvelocity)
-        self.sim.setJointTargetVelocity(self.left_back_handle, self.leftvelocity)
-        self.sim.setJointTargetVelocity(self.right_back_handle, self.rightvelocity)
-        self.sim.setJointTargetVelocity(self.right_front_handle, self.rightvelocity)
-
+            err_code = vrep.simxSetJointForce(self.clientID, h, force, vrep.simx_opmode_oneshot)
+        
+        #break
+        self.leftvelocity=10
+        self.rightvelocity=10
+        vrep.simxSetJointTargetVelocity(self.clientID,self.left_front_handle,self.leftvelocity,vrep.simx_opmode_streaming)
+        vrep.simxSetJointTargetVelocity(self.clientID,self.left_back_handle,self.leftvelocity,vrep.simx_opmode_streaming)
+        vrep.simxSetJointTargetVelocity(self.clientID,self.right_back_handle,self.rightvelocity,vrep.simx_opmode_streaming)
+        vrep.simxSetJointTargetVelocity(self.clientID,self.right_front_handle,self.rightvelocity,vrep.simx_opmode_streaming)
+    
     def go(self):
-        # Set drivers to go mode
-        force = self.FORCE
-        self.sim.setJointForce(self.left_front_handle, force)
-        self.sim.setJointForce(self.left_back_handle, force)
-        self.sim.setJointForce(self.right_back_handle, force)
-        self.sim.setJointForce(self.right_front_handle, force)
-
-        force = 0
+        #set divers to go mode
+        force =10
+        err_code = vrep.simxSetJointForce(self.clientID, self.left_front_handle, force, vrep.simx_opmode_oneshot)
+        err_code = vrep.simxSetJointForce(self.clientID, self.left_back_handle, force, vrep.simx_opmode_oneshot)
+        err_code = vrep.simxSetJointForce(self.clientID, self.right_back_handle, force, vrep.simx_opmode_oneshot)
+        err_code = vrep.simxSetJointForce(self.clientID, self.right_front_handle, force, vrep.simx_opmode_oneshot)
+        
+        force =0
         for h in self.side_handles:
-            self.sim.setJointForce(h, force)
-
+            err_code = vrep.simxSetJointForce(self.clientID, h, force, vrep.simx_opmode_oneshot)
+    
     def setVelocity(self):
-        # Verify if the velocity is in the correct range
-        self.leftvelocity = max(min(self.leftvelocity, self.MaxVel), -self.MaxVel)
-        self.rightvelocity = max(min(self.rightvelocity, self.MaxVel), -self.MaxVel)
-
-        # Send the velocity values to the drivers
-        self.sim.setJointTargetVelocity(self.left_back_handle, self.leftvelocity)
-        self.sim.setJointTargetVelocity(self.right_back_handle, self.rightvelocity)
-
+        #verify if the velocity is in correct range
+        if self.leftvelocity > self.MaxVel:
+            self.leftvelocity = self.MaxVel
+        if self.leftvelocity < -self.MaxVel:
+            self.leftvelocity = -self.MaxVel
+        if self.rightvelocity > self.MaxVel:
+            self.rightvelocity = self.MaxVel
+        if self.rightvelocity < -self.MaxVel:
+            self.rightvelocity = -self.MaxVel
+        
+        #send value of velocity to drivers
+        #vrep.simxSetJointTargetVelocity(clientID,left_front_handle,leftvelocity,vrep.simx_opmode_streaming)
+        vrep.simxSetJointTargetVelocity(self.clientID,self.left_back_handle,self.leftvelocity,vrep.simx_opmode_streaming)
+        vrep.simxSetJointTargetVelocity(self.clientID,self.right_back_handle,self.rightvelocity,vrep.simx_opmode_streaming)
+        #vrep.simxSetJointTargetVelocity(clientID,right_front_handle,rightvelocity,vrep.simx_opmode_streaming)
+    
+    #Move the tank forward
+    #None - increases velocity by 1, if velocities of wheels are different they are equalized 
+    #velocity - takes values from <-10,10> and sets them as velocity for both wheels in forward direction
     def forward(self, velocity=None):
         self.go()
-        if velocity is not None:
-            self.leftvelocity = velocity
-            self.rightvelocity = velocity
+        if velocity!=None:
+            self.leftvelocity=velocity
+            self.rightvelocity=velocity
         else:
-            self.rightvelocity = self.leftvelocity = (self.leftvelocity + self.rightvelocity) / 2
-            self.leftvelocity += self.dVel
-            self.rightvelocity += self.dVel
+            self.rightvelocity=self.leftvelocity=(self.leftvelocity+self.rightvelocity)/2
+            self.leftvelocity+=self.dVel
+            self.rightvelocity+=self.dVel
         self.setVelocity()
-
+    
+    #Move the tank backward 
+    #None - decreases velocity by 1, if velocities of wheels are different they are equalized 
+    #velocity - takes values from <-10,10> and sets them as velocity for both wheels in backward direction
     def backward(self, velocity=None):
         self.go()
-        if velocity is not None:
-            self.leftvelocity = -velocity
-            self.rightvelocity = -velocity
+        if velocity!=None:
+            self.leftvelocity=-velocity
+            self.rightvelocity=-velocity
         else:
-            self.rightvelocity = self.leftvelocity = (self.leftvelocity + self.rightvelocity) / 2
-            self.leftvelocity -= self.dVel
-            self.rightvelocity -= self.dVel
+            self.rightvelocity=self.leftvelocity=(self.leftvelocity+self.rightvelocity)/2
+            self.leftvelocity-=self.dVel
+            self.rightvelocity-=self.dVel
         self.setVelocity()
-
+    
+    #Turns left the tank 
+    #None - increases velocity of rightwheel by 1, decreases velocity of leftwheel by 1 
+    #velocity - takes values from <-10,10> and sets it as velocity for right wheel 
+        #in forward direction and oposite value of velocity for left wheel in backward direction
     def turn_left(self, velocity=None):
         self.go()
-        if velocity is not None:
-            self.leftvelocity = -velocity
-            self.rightvelocity = velocity
+        if velocity!=None:
+            self.leftvelocity =-velocity
+            self.rightvelocity= velocity
         else:
-            self.leftvelocity -= self.dVel
-            self.rightvelocity += self.dVel
+            self.leftvelocity -=self.dVel
+            self.rightvelocity+=self.dVel
         self.setVelocity()
-
+    
+    #Turns right the tank 
+    #None - increases velocity of leftwheel by 1, decreases velocity of rightwheel by 1 
+    #velocity - takes values from <-10,10> and sets it as velocity for left wheel 
+        #in forward direction and oposite value of velocity for right wheel in backward direction
     def turn_right(self, velocity=None):
         self.go()
-        if velocity is not None:
+        if velocity!=None:
             self.leftvelocity = velocity
-            self.rightvelocity = -velocity
+            self.rightvelocity=-velocity
         else:
-            self.leftvelocity += self.dVel
-            self.rightvelocity -= self.dVel
+            self.leftvelocity +=self.dVel
+            self.rightvelocity-=self.dVel
         self.setVelocity()
-
-    def read_proximity_sensors(self):
-        # Read and print values from proximity sensors
-        sensor_data = {}
-        for sensor_name, sensor_handle in zip(self.proximity_sensors, self.proximity_sensors_handles):
-            result = self.sim.readProximitySensor(sensor_handle)
-            detectionState = result[0]
-            detectedPoint = result[1]
-            detectedObjectHandle = result[2]
-            detectedSurfaceNormalVector = result[3]
-            sensor_data[sensor_name] = {
-                "detectionState": detectionState,
-                "detectedPoint": detectedPoint,
-                "detectedObjectHandle": detectedObjectHandle,
-                "detectedSurfaceNormalVector": detectedSurfaceNormalVector
-            }
-        return sensor_data

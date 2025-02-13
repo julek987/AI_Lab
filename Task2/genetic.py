@@ -90,7 +90,7 @@ def evaluate_population(population, orders):
     return fitnesses
 
 
-def tournament_selection(population, fitnesses, tournament_size=3):
+def tournament_selection(population, fitnesses, tournament_size):
     # Randomly pick a group (tournament) and return the best chromosome.
     participants = random.sample(list(zip(population, fitnesses)), tournament_size)
     best = min(participants, key=lambda x: x[1])
@@ -126,7 +126,7 @@ def crossover(parent1, parent2):
     return child
 
 
-def mutate(chromosome, mutation_rate=0.1):
+def mutate(chromosome, mutation_rate):
     # Create a copy of the chromosome for mutation.
     mutated = chromosome.copy()
     # For each gene, swap it with another randomly with a chance of mutation_rate.
@@ -138,11 +138,11 @@ def mutate(chromosome, mutation_rate=0.1):
 
 
 def genetic_algorithm(orders,
-                      pop_size=50,
-                      generations=100,
-                      crossover_rate=0.8,
-                      mutation_rate=0.1,
-                      tournament_size=3):
+                      pop_size,
+                      generations,
+                      crossover_rate,
+                      mutation_rate,
+                      tournament_size):
 
     # Initialize the population.
     population = create_population(orders, pop_size)
@@ -184,10 +184,10 @@ def genetic_algorithm(orders,
 # Run the genetic algorithm with chosen parameters.
 best_chrom, best_fit = genetic_algorithm(orders,
                                          pop_size=150,
-                                         generations=250,
+                                         generations=50,
                                          crossover_rate=0.6,
-                                         mutation_rate=0.001,
-                                         tournament_size=4)
+                                         mutation_rate=0.01,
+                                         tournament_size=30)
 
 print("\nBest Found Schedule:")
 # Decode the best chromosome to get the final schedule.

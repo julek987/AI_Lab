@@ -2,6 +2,8 @@ import time
 import tracemalloc
 import math
 import multiprocessing
+import numpy as np
+import matplotlib.pyplot as plt
 from typing import Optional
 
 from aco import aco_tsp
@@ -41,7 +43,6 @@ def run_aco(graph: Graph):
     return aco_tsp(graph, num_ants=10, num_iterations=50)
 
 
-
 def run_algorithm_worker(queue, algorithm_func, graph, start):
     try:
         if start is None:
@@ -51,7 +52,6 @@ def run_algorithm_worker(queue, algorithm_func, graph, start):
         queue.put(result)
     except Exception:
         queue.put((None, math.inf))
-
 
 
 def test_algorithm(algorithm_func, graph) -> (Optional[list], float, float, float):
@@ -69,8 +69,8 @@ def test_algorithm(algorithm_func, graph) -> (Optional[list], float, float, floa
     p = multiprocessing.Process(target=run_algorithm_worker, args=(queue, algorithm_func, graph, start_param))
     p.start()
 
-    # Wait for up to 60 seconds.
-    p.join(timeout=15)
+    # Wait for up to 15 seconds.
+    p.join(timeout=30)
 
     # If the process is still alive, terminate it.
     if p.is_alive():
@@ -92,8 +92,59 @@ def test_algorithm(algorithm_func, graph) -> (Optional[list], float, float, floa
     return result[0], result[1], time_elapsed, peak_memory
 
 
+def plot_results(results, algorithms):
+
+    for scenario, data in results.items():
+        connection, symmetry = scenario
+        fig, axs = plt.subplots(1, 3, figsize=(18, 5))
+        fig.suptitle(f"Results for scenario: connection='{connection}', symmetry={symmetry}")
+
+        num_algs = len(algorithms)
+
+        # Plot cost vs. number of cities.
+        ax = axs[0]
+        for idx, (alg_name, _) in enumerate(algorithms):
+            # Calculate a small offset for each algorithm.
+            offset = (idx - num_algs / 2) * 0.1
+            adjusted_n = [n + offset for n in data["n"]]
+            # Replace math.inf with np.nan so that failures are not plotted.
+            cost_values = [np.nan if math.isinf(c) else c for c in data[alg_name]["cost"]]
+            ax.plot(adjusted_n, cost_values, marker='o', label=alg_name)
+        ax.set_title("Cost")
+        ax.set_xlabel("Number of cities")
+        ax.set_ylabel("Cost")
+        ax.legend()
+
+        # Plot time vs. number of cities.
+        ax = axs[1]
+        for idx, (alg_name, _) in enumerate(algorithms):
+            offset = (idx - num_algs / 2) * 0.1
+            adjusted_n = [n + offset for n in data["n"]]
+            time_values = [np.nan if math.isinf(t) else t for t in data[alg_name]["time"]]
+            ax.plot(adjusted_n, time_values, marker='o', label=alg_name)
+        ax.set_title("Time")
+        ax.set_xlabel("Number of cities")
+        ax.set_ylabel("Time (s)")
+        ax.legend()
+
+        # Plot memory vs. number of cities.
+        ax = axs[2]
+        for idx, (alg_name, _) in enumerate(algorithms):
+            offset = (idx - num_algs / 2) * 0.1
+            adjusted_n = [n + offset for n in data["n"]]
+            mem_values = [np.nan if math.isinf(m) else m for m in data[alg_name]["mem"]]
+            ax.plot(adjusted_n, mem_values, marker='o', label=alg_name)
+        ax.set_title("Memory")
+        ax.set_xlabel("Number of cities")
+        ax.set_ylabel("Memory (KB)")
+        ax.legend()
+
+        plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+        plt.show()
+
+
 def main():
-    test_sizes = [5, 10, 15, 20]
+    test_sizes = [5, 7, 10, 12]
     scenarios = [
         ("complete", True),
         ("complete", False),
@@ -101,55 +152,55 @@ def main():
         ("80_percent", False)
     ]
 
+    # List of (algorithm name, function) tuples.
+    algorithms = [
+        ("BFS", run_bfs),
+        ("DFS", run_dfs),
+        ("NN", run_nearest_neighbor),
+        ("Dijkstra", run_dijkstra_approx),
+        ("A*_adm", run_a_star_admissible),
+        ("A*_inad", run_a_star_inadmissible),
+        ("ACO", run_aco)
+    ]
+
+    # Initialise a results dictionary.
+    # For each scenario we record the number of cities and for each algorithm, lists for cost, time and memory.
+    results = {}
+    for scenario in scenarios:
+        results[scenario] = {"n": []}
+        for alg_name, _ in algorithms:
+            results[scenario][alg_name] = {"cost": [], "time": [], "mem": []}
+
     for n in test_sizes:
         print(f"\n===== Testing n = {n} cities =====")
         # 1) Generate cities.
         cities = generate_cities(n)
 
-        for scenario_connection, scenario_symmetry in scenarios:
-            print(f"\nScenario: {scenario_connection}, Symmetry={scenario_symmetry}")
+        for scenario in scenarios:
+            connection, symmetry = scenario
+            print(f"\nScenario: {connection}, Symmetry={symmetry}")
             # 2) Build the graph.
             graph = Graph(
                 cities=cities,
-                scenario_connection=scenario_connection,
-                scenario_symmetry=scenario_symmetry
+                scenario_connection=connection,
+                scenario_symmetry=symmetry
             )
 
-            # BFS TSP.
-            try:
-                route_bfs, cost_bfs, time_bfs, mem_bfs = test_algorithm(run_bfs, graph)
-                print(f"  BFS => cost={cost_bfs}, time={time_bfs:.3f}s, mem={mem_bfs:.1f}KB")
-            except Exception:
-                print("  BFS => too large, or an error occurred")
+            # Record the number of cities for the current scenario.
+            results[scenario]["n"].append(n)
 
-            # DFS TSP.
-            try:
-                route_dfs, cost_dfs, time_dfs, mem_dfs = test_algorithm(run_dfs, graph)
-                print(f"  DFS => cost={cost_dfs}, time={time_dfs:.3f}s, mem={mem_dfs:.1f}KB")
-            except Exception:
-                print("  DFS => too large, or an error occurred")
+            for alg_name, alg_func in algorithms:
+                try:
+                    route, cost, t_elapsed, mem_used = test_algorithm(alg_func, graph)
+                except Exception:
+                    route, cost, t_elapsed, mem_used = (None, math.inf, math.inf, math.inf)
+                print(f"  {alg_name} => cost={cost}, time={t_elapsed:.3f}s, mem={mem_used:.1f}KB")
+                results[scenario][alg_name]["cost"].append(cost)
+                results[scenario][alg_name]["time"].append(t_elapsed)
+                results[scenario][alg_name]["mem"].append(mem_used)
 
-            # Nearest Neighbor.
-            route_nn, cost_nn, time_nn, mem_nn = test_algorithm(run_nearest_neighbor, graph)
-            print(f"  NN  => cost={cost_nn}, time={time_nn:.3f}s, mem={mem_nn:.1f}KB")
-
-            # Dijkstra-based.
-            route_djk, cost_djk, time_djk, mem_djk = test_algorithm(run_dijkstra_approx, graph)
-            print(f"  Dijkstra => cost={cost_djk}, time={time_djk:.3f}s, mem={mem_djk:.1f}KB")
-
-            # A* (admissible heuristic).
-            route_astar_adm, cost_astar_adm, time_astar_adm, mem_astar_adm = test_algorithm(run_a_star_admissible,
-                                                                                            graph)
-            print(f"  A*(adm) => cost={cost_astar_adm}, time={time_astar_adm:.3f}s, mem={mem_astar_adm:.1f}KB")
-
-            # A* (inadmissible heuristic).
-            route_astar_inad, cost_astar_inad, time_astar_inad, mem_astar_inad = test_algorithm(run_a_star_inadmissible,
-                                                                                                graph)
-            print(f"  A*(inad)=> cost={cost_astar_inad}, time={time_astar_inad:.3f}s, mem={mem_astar_inad:.1f}KB")
-
-            # ACO.
-            route_aco, cost_aco, time_aco, mem_aco = test_algorithm(run_aco, graph)
-            print(f"  ACO => cost={cost_aco}, time={time_aco:.3f}s, mem={mem_aco:.1f}KB")
+    # After testing all cases, plot the results.
+    plot_results(results, algorithms)
 
 
 if __name__ == "__main__":
